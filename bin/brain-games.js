@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import game from './src/cli.js'
+import parityGame from './games/parityGame.js'
 
-game()
+parityGame()
