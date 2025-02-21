@@ -11,26 +11,28 @@ export default function () {
   startGame();
 }
 
+const checkGuess = (answer, number) => {
+  return (
+    (answer === "yes" && getParity(number)) ||
+    (answer === "no" && !getParity(number))
+  );
+};
+
 const startGame = () => {
   let counter = 0;
-  while (true) {
-    if (counter == 3) {
-      console.log("You're won! congratulations! :)");
-      break;
-    }
 
+  while (counter < 3) {
     const number = numberRandom();
     console.log(`[${counter}|3] Number is: ${number}`);
-    const parityGuess = readlineSync.question("Is it even? ");
-    if (
-      (parityGuess == "yes" && getParity(number) == true) ||
-      (parityGuess == "no" && getParity(number) == false)
-    ) {
-      console.log("Correct!");
+    const answer = readlineSync.question("Is it even? ");
+    if (checkGuess(answer, number)) {
       counter++;
+      console.log("Correct!");
     } else {
-      console.log("No!");
       counter = 0;
+      console.log("You're wrong! Try again");
     }
   }
+
+  console.log("You're won! Congratulations! :)");
 };
