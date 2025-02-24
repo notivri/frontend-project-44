@@ -18,8 +18,8 @@ const game = (name) => {
       console.log('Correct!');
       counter += 1;
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;( Correct was: '${answer}'`);
-      console.log("Let's try again, Sam!");
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct was: '${answer}'`);
+      console.log(`Let's try again, ${name}!`);
       counter += 0;
     }
   }
