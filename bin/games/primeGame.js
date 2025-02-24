@@ -1,25 +1,23 @@
 import readlineSync from 'readline-sync';
-import { randomNumber, checkGuess } from '../src/index.js';
+import { randomNumber, checkPrimeGuess } from '../src/index.js';
 
 const game = (name) => {
   let counter = 0;
 
   while (counter < 3) {
     const number = randomNumber();
-
-    console.log(`[${counter}|3] Number is: ${number}`);
-    const answer = readlineSync.question('Is it even? ');
-
-    if (checkGuess(answer.toLowerCase(), number)) {
-      counter += 1;
+    console.log(`Number is: ${number}`);
+    const userAnswer = readlineSync.question(`[${counter}|3]Your answer: `);
+    if (checkPrimeGuess(userAnswer, number)) {
       console.log('Correct!');
+      counter += 1;
     } else {
+      console.log('You`re wrong!');
       counter = 0;
-      console.log(`You're wrong, ${name}! Try again`);
     }
   }
 
-  console.log(`Congratulations, ${name}! You win`);
+  console.log(`Congratulations, ${name}. You win`);
 };
 
 export default game;

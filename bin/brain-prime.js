@@ -2,4 +2,4 @@
 import primeGame from './games/primeGame.js';
 import { welcome } from './src/index.js';
 
-primeGame(welcome('Find the greatest common divisor of given numbers.'));
+primeGame(welcome('Answer "yes" if given number is prime. Otherwise answer "no".'));

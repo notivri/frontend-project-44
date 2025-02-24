@@ -10,12 +10,12 @@ export const welcome = (description) => {
 
 export const getParity = (number) => number % 2 === 0;
 
-export const checkGuess = (answer, number) => (answer === 'yes' && getParity(number))
-|| (answer === 'no' && !getParity(number));
+export const checkParityGuess = (answer, number) => (answer.toLowerCase() === 'yes' && getParity(number))
+  || (answer.toLowerCase() === 'no' && !getParity(number));
 
-export const randomNumber = (min = 1, max = 100) => {
-  Math.floor(Math.random() * (((max - min) + 1)) + min);
-};
+export function randomNumber(min = 1, max = 100) {
+  return Math.floor(Math.random() * max - min + 1 + min);
+}
 
 export const calculate = (num1, num2, operator) => {
   switch (operator) {
@@ -51,3 +51,13 @@ export const generateProgression = () => {
 
   return { progression, missingNumber };
 };
+
+const getPrime = (num) => {
+  for (let i = 2, s = Math.sqrt(num); i <= s; i += 1) {
+    if (num % i === 0) return false;
+  }
+  return num > 1;
+};
+
+export const checkPrimeGuess = (answer, number) => (answer.toLowerCase() === 'yes' && getPrime(number))
+  || (answer.toLowerCase() === 'no' && !getPrime(number));
