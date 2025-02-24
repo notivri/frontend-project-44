@@ -1,10 +1,10 @@
 import readlineSync from "readline-sync";
 
-export const welcome = () => {
+export const welcome = (description) => {
   console.log("Welcome to the Brain Games!");
   const name = readlineSync.question("May I have your name? ");
   console.log(`Hello, ${name}!`);
-  console.log('You have number, write "yes" or "no"');
+  console.log(description);
   return name
 }
 
@@ -24,3 +24,4 @@ export const calculate = (num1, num2, operator) => {
       return num1 * num2;
   }
 };
+export const gcd = (num1, num2) => num2 == 0 ? num1 : gcd(num2, num1 % num2)
