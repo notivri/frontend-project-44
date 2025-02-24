@@ -7,7 +7,7 @@ const game = (name) => {
   while (counter < 3) {
     const number = randomNumber();
 
-    console.log(`[${counter}|3] Number is: ${number}`);
+    console.log(`Number is: ${number}`);
     const answer = readlineSync.question('Your answer: ');
 
     const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
