@@ -17,7 +17,7 @@ const game = (name) => {
       console.log('Correct! Good job');
     } else {
       counter = 0;
-      console.log("You're wrong. Try again");
+      console.log(`You're wrong. Correct was: ${answer}`);
     }
   }
   console.log(`Congratulations, ${name}! You win`);
