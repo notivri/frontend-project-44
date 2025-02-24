@@ -8,14 +8,15 @@ export const welcome = (description) => {
   return name;
 };
 
+export const randomNumber = (min = 1, max = 100) => {
+  const range = max - min + 1;
+  return Math.floor(Math.random() * range) + min;
+};
+
 export const getParity = (number) => number % 2 === 0;
 
 export const checkParityGuess = (answer, number) => (answer.toLowerCase() === 'yes' && getParity(number))
   || (answer.toLowerCase() === 'no' && !getParity(number));
-
-export function randomNumber(min = 1, max = 100) {
-  return Math.floor(Math.random() * max - min + 1 + min);
-}
 
 export const calculate = (num1, num2, operator) => {
   switch (operator) {
