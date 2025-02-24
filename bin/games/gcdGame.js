@@ -12,7 +12,7 @@ const game = (name) => {
     console.log(`Question: ${num1} ${num2}`);
     const userAnswer = readlineSync.question(`[${counter}|3]Your answer: `);
 
-    if (userAnswer === answer) {
+    if (Number(userAnswer) === answer) {
       counter += 1;
       console.log('Correct! Good job');
     } else {
