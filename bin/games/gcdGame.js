@@ -1,5 +1,5 @@
-import readlineSync from "readline-sync";
-import { randomNumber, gcd } from "../src/index.js";
+import readlineSync from 'readline-sync';
+import { randomNumber, gcd } from '../src/index.js';
 
 const game = (name) => {
   let counter = 0;
@@ -12,9 +12,9 @@ const game = (name) => {
     console.log(`Question: ${num1} ${num2}`);
     const userAnswer = readlineSync.question(`[${counter}|3]Your answer: `);
 
-    if (userAnswer == answer) {
-      counter++;
-      console.log("Correct! Good job");
+    if (userAnswer === answer) {
+      counter += 1;
+      console.log('Correct! Good job');
     } else {
       counter = 0;
       console.log("You're wrong. Try again");

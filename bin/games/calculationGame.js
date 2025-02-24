@@ -1,9 +1,9 @@
-import readlineSync from "readline-sync";
-import { randomNumber, calculate } from "../src/index.js";
+import readlineSync from 'readline-sync';
+import { randomNumber, calculate } from '../src/index.js';
 
 const game = (name) => {
   let counter = 0;
-  const operations = ["+", "-", "*"];
+  const operations = ['+', '-', '*'];
 
   while (counter < 3) {
     const num1 = randomNumber(1, 10);
@@ -12,14 +12,14 @@ const game = (name) => {
     const answer = calculate(num1, num2, operator);
 
     console.log(`[${counter}|3] Question: ${num1} ${operator} ${num2}`);
-    const userAnswer = readlineSync.question("Your answer: ");
+    const userAnswer = readlineSync.question('Your answer: ');
 
-    if (Number(userAnswer) == answer) {
-      console.log("Correct!");
-      counter++;
+    if (Number(userAnswer) === answer) {
+      console.log('Correct!');
+      counter += 1;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(`);
-      counter = 0;
+      counter += 0;
     }
   }
   console.log(`Congratulations, ${name}! You win!`);

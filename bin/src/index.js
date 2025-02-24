@@ -14,8 +14,9 @@ export const checkGuess = (answer, number) =>
   (answer === "yes" && getParity(number)) ||
   (answer === "no" && !getParity(number));
 
-export const randomNumber = (min = 1, max = 100) =>
+export const randomNumber = (min = 1, max = 100) => {
   Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
 export const calculate = (num1, num2, operator) => {
   switch (operator) {
@@ -28,7 +29,7 @@ export const calculate = (num1, num2, operator) => {
   }
 };
 
-export const gcd = (num1, num2) => (num2 == 0 ? num1 : gcd(num2, num1 % num2));
+export const gcd = (num1, num2) => (num2 === 0 ? num1 : gcd(num2, num1 % num2));
 
 export const generateProgression = () => {
   const length = randomNumber(5, 10);
