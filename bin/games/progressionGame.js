@@ -6,9 +6,9 @@ const game = (name) => {
 
   while (counter < 3) {
     const { progression, missingNumber } = generateProgression();
-    console.log(`Progression: ${progression.join(' ')}`);
+    console.log(`Question: ${progression.join(' ')}`);
     const userAnswer = Number(
-      readlineSync.question(`[${counter}|3]Your answer: `),
+      readlineSync.question('Your answer: '),
     );
     if (userAnswer === missingNumber) {
       counter += 1;
@@ -19,7 +19,7 @@ const game = (name) => {
     }
   }
 
-  console.log(`Congratulations, ${name}! You win`);
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default game;

@@ -10,17 +10,18 @@ const game = (name) => {
     const answer = gcd(num1, num2);
 
     console.log(`Question: ${num1} ${num2}`);
-    const userAnswer = readlineSync.question(`[${counter}|3]Your answer: `);
+    const userAnswer = readlineSync.question('Your answer: ');
 
     if (Number(userAnswer) === answer) {
       counter += 1;
-      console.log('Correct! Good job');
+      console.log('Correct!');
     } else {
       counter = 0;
-      console.log(`You're wrong. Correct was: ${answer}`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
+      console.log(`Let's try again, ${name}!`);
     }
   }
-  console.log(`Congratulations, ${name}! You win`);
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default game;

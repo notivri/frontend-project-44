@@ -11,7 +11,7 @@ const game = (name) => {
     const operator = operations[randomNumber(0, operations.length - 1)];
     const answer = calculate(num1, num2, operator);
 
-    console.log(`[${counter}|3] Question: ${num1} ${operator} ${num2}`);
+    console.log(`Question: ${num1} ${operator} ${num2}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
     if (Number(userAnswer) === answer) {
@@ -19,10 +19,11 @@ const game = (name) => {
       counter += 1;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;( Correct was: '${answer}'`);
+      console.log("Let's try again, Sam!");
       counter += 0;
     }
   }
-  console.log(`Congratulations, ${name}! You win!`);
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default game;
