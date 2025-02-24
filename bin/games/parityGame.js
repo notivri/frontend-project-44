@@ -16,6 +16,7 @@ const game = (name) => {
       counter += 1;
       console.log('Correct!');
     } else {
+      counter = 0;
       console.log(`${answer} is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
     }
