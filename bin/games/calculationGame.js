@@ -23,7 +23,9 @@ const game = (name) => {
       break
     }
   }
-  console.log(`Congratulations, ${name}!`);
+  if (counter == 3) {
+    console.log(`Congratulations, ${name}!`);
+  }
 };
 
 export default game;
