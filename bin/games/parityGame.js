@@ -8,16 +8,15 @@ const game = (name) => {
     const number = randomNumber();
 
     console.log(`Question: ${number}`);
-    const answer = readlineSync.question('Your answer: ');
-
+    const userAnswer = readlineSync.question('Your answer: ');
     const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
 
-    if (checkParityGuess(answer.toLowerCase(), number)) {
+    if (checkParityGuess(userAnswer, number)) {
       counter += 1;
       console.log('Correct!');
     } else {
       counter = 0;
-      console.log(`${answer} is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
       console.log(`Let's try again, ${name}!`);
     }
   }
