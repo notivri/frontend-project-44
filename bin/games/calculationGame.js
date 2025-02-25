@@ -23,7 +23,8 @@ const game = (name) => {
       break
     }
   }
-  if (counter == 3) {
+
+  if (counter === 3) {
     console.log(`Congratulations, ${name}!`);
   }
 };
