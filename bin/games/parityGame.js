@@ -1,29 +1,33 @@
 import readlineSync from 'readline-sync';
-import { randomNumber, checkParityGuess } from '../src/index.js';
+import {
+  randomNumber, checkAnswer, getParity, getCorrectAnswer,
+} from '../src/index.js';
+
+const ask = () => {
+  const number = randomNumber();
+  console.log(`Question: ${number}`);
+  const userAnswer = readlineSync.question('Your answer: ');
+  return { userAnswer, number };
+};
 
 const game = (name) => {
   let counter = 0;
 
   while (counter < 3) {
-    const number = randomNumber();
+    const { userAnswer, number } = ask();
+    const correctAnswer = getCorrectAnswer(number, getParity);
 
-    console.log(`Question: ${number}`);
-    const userAnswer = readlineSync.question('Your answer: ');
-    const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
-
-    if (checkParityGuess(userAnswer, number)) {
-      counter += 1;
+    if (checkAnswer(correctAnswer, userAnswer)) {
       console.log('Correct!');
+      counter += 1;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
-      break;
+      return;
     }
   }
 
-  if (counter === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default game;
