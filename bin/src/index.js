@@ -50,7 +50,7 @@ export const generateProgression = () => {
 
   const missingIndex = Math.floor(Math.random() * length);
   const missingNumber = progression[missingIndex];
-  progression[missingIndex] = '...';
+  progression[missingIndex] = '..';
 
   return { progression, missingNumber };
 };
