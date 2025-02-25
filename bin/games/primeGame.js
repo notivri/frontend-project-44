@@ -9,14 +9,14 @@ const game = (name) => {
     console.log(`Question: ${number}`);
     const userAnswer = readlineSync.question('Your answer: ');
     const answer = checkPrimeGuess(userAnswer, number) ? 'yes' : 'no';
-    
+
     if (checkPrimeGuess(userAnswer, number)) {
       console.log('Correct!');
       counter += 1;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
       console.log(`Let's try again, ${name}!`);
-      counter = 0;
+      break
     }
   }
 

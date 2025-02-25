@@ -10,13 +10,13 @@ const game = (name) => {
     const userAnswer = Number(
       readlineSync.question('Your answer: '),
     );
-    
+
     if (userAnswer === missingNumber) {
       counter += 1;
       console.log('Correct!');
     } else {
-      counter = 0;
       console.log(`'${userAnswer}' is wrong answer ;(. correct was ${missingNumber}`);
+      break
     }
   }
 

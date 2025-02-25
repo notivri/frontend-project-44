@@ -20,7 +20,7 @@ const game = (name) => {
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct was: '${answer}'`);
       console.log(`Let's try again, ${name}!`);
-      counter += 0;
+      break
     }
   }
   console.log(`Congratulations, ${name}!`);
