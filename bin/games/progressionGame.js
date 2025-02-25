@@ -17,7 +17,7 @@ const game = (name) => {
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. correct was ${missingNumber}`);
       console.log(`Let's try again, ${name}!`);
-      break
+      break;
     }
   }
 

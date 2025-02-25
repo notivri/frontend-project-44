@@ -16,16 +16,15 @@ const game = (name) => {
       counter += 1;
       console.log('Correct!');
     } else {
-      counter = 0;
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
       console.log(`Let's try again, ${name}!`);
-      break
+      break;
     }
   }
-  
+
   if (counter === 3) {
     console.log(`Congratulations, ${name}!`);
-  }
+  };
 };
 
 export default game;

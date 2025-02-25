@@ -15,12 +15,12 @@ const game = (name) => {
     const userAnswer = readlineSync.question('Your answer: ');
 
     if (Number(userAnswer) === answer) {
-      console.log('Correct!');
       counter += 1;
+      console.log('Correct!');
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct was: '${answer}'`);
       console.log(`Let's try again, ${name}!`);
-      break
+      break;
     }
   }
 

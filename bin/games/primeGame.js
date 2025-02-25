@@ -16,11 +16,13 @@ const game = (name) => {
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
       console.log(`Let's try again, ${name}!`);
-      break
+      break;
     }
   }
 
-  console.log(`Congratulations, ${name}!`);
+  if (counter === 3) {
+    console.log(`Congratulations, ${name}!`);
+  }
 };
 
 export default game;
