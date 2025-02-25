@@ -24,7 +24,7 @@ const game = (name) => {
 
   if (counter === 3) {
     console.log(`Congratulations, ${name}!`);
-  };
+  }
 };
 
 export default game;
