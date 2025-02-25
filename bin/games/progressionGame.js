@@ -16,11 +16,14 @@ const game = (name) => {
       console.log('Correct!');
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. correct was ${missingNumber}`);
+      console.log(`Let's try again, ${name}!`);
       break
     }
   }
 
-  console.log(`Congratulations, ${name}!`);
+  if (counter === 3) {
+    console.log(`Congratulations, ${name}!`);
+  }
 };
 
 export default game;
