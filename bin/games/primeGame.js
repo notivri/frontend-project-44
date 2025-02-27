@@ -9,7 +9,7 @@ const game = (name) => {
 
     console.log(`Question: ${number}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const correctAnswer = checkPrimeGuess(number)
+    const correctAnswer = checkPrimeGuess(number);
 
     if (checkPrimeGuess(number) !== userAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);

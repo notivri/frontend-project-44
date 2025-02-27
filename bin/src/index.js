@@ -15,7 +15,7 @@ export const randomNumber = (min = 1, max = 100) => {
   return Math.floor(Math.random() * range) + min;
 };
 
-export const checkParityGuess = (number) => number % 2 === 0 ? 'yes' : 'no';
+export const checkParityGuess = (number) => (number % 2 === 0 ? 'yes' : 'no');
 
 export const calculate = (num1, num2, operator) => {
   switch (operator) {
@@ -59,4 +59,4 @@ const getPrime = (num) => {
   return num > 1;
 };
 
-export const checkPrimeGuess = (number) => getPrime(number) ? 'yes' : 'no';
+export const checkPrimeGuess = (number) => (getPrime(number) ? 'yes' : 'no');
