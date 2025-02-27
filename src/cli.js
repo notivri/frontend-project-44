@@ -10,6 +10,26 @@ export default (description) => {
   return name
 }
 
+export const startGame = (questionAndAnswer, name) => {
+  let counter = 0
+
+  while (counter < 3) {
+    const { question, answer } = questionAndAnswer()
+    console.log(`Question: ${question}`)
+    const userAnswer = readlineSync.question('Your answer: ')
+
+    if (userAnswer != answer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`)
+      console.log(`Let's try again, ${name}!`)
+      return
+    }
+
+    counter += 1
+    console.log('Correct!')
+  }
+  console.log(`Congratulations, ${name}!`)
+}
+
 export const randomNumber = (min = 1, max = 100) => {
   const range = max - min + 1
   return Math.floor(Math.random() * range) + min

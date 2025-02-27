@@ -1,29 +1,14 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync'
-import welcome, { generateProgression } from '../src/cli.js'
+import welcome, { generateProgression, startGame } from '../src/cli.js'
 
 const game = (name) => {
-  let counter = 0
-
-  while (counter < 3) {
+  startGame(() => {
     const { progression, missingNumber } = generateProgression()
-
-    console.log(`Question: ${progression.join(' ')}`)
-    const userAnswer = Number(
-      readlineSync.question('Your answer: '),
-    )
-
-    if (Number(userAnswer) !== missingNumber) {
-      console.log(`'${userAnswer}' is wrong answer ;(. correct was '${missingNumber}'`)
-      console.log(`Let's try again, ${name}!`)
-      return
+    return {
+      question: `${progression.join(' ')}`,
+      answer: missingNumber,
     }
-
-    counter += 1
-    console.log('Correct!')
-  }
-
-  console.log(`Congratulations, ${name}!`)
+  }, name)
 }
 
 game(welcome('What number is missing in the progression?'))
