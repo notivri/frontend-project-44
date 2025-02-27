@@ -15,10 +15,7 @@ export const randomNumber = (min = 1, max = 100) => {
   return Math.floor(Math.random() * range) + min;
 };
 
-export const getParity = (number) => number % 2 === 0;
-
-export const checkParityGuess = (answer, number) => (answer.toLowerCase() === 'yes' && getParity(number))
-  || (answer.toLowerCase() === 'no' && !getParity(number));
+export const checkParityGuess = (number) => number % 2 === 0 ? 'yes' : 'no';
 
 export const calculate = (num1, num2, operator) => {
   switch (operator) {
@@ -43,7 +40,7 @@ export const generateProgression = () => {
   const start = randomNumber(1, 10);
   const step = randomNumber(1, 10);
   const progression = [];
-  
+
   for (let i = 0; i < length; i += 1) {
     progression.push(start + step * i);
   }
@@ -62,5 +59,4 @@ const getPrime = (num) => {
   return num > 1;
 };
 
-export const checkPrimeGuess = (answer, number) => (answer.toLowerCase() === 'yes' && getPrime(number))
-  || (answer.toLowerCase() === 'no' && !getPrime(number));
+export const checkPrimeGuess = (number) => getPrime(number) ? 'yes' : 'no';

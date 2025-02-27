@@ -6,12 +6,11 @@ const game = (name) => {
 
   while (counter < 3) {
     const number = randomNumber();
-    
+
     console.log(`Question: ${number}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const correctAnswer = checkPrimeGuess(userAnswer, number) ? 'yes' : 'no';
 
-    if (!checkPrimeGuess(userAnswer, number)) {
+    if (checkPrimeGuess(number) !== userAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
       return;
