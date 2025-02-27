@@ -15,6 +15,11 @@ export const randomNumber = (min = 1, max = 100) => {
   return Math.floor(Math.random() * range) + min;
 };
 
+export const getParity = (number) => number % 2 === 0;
+
+export const checkParityGuess = (answer, number) => (answer.toLowerCase() === 'yes' && getParity(number))
+  || (answer.toLowerCase() === 'no' && !getParity(number));
+
 export const calculate = (num1, num2, operator) => {
   switch (operator) {
     case '+':
@@ -50,17 +55,12 @@ export const generateProgression = () => {
   return { progression, missingNumber };
 };
 
-export const getPrime = (num) => {
+const getPrime = (num) => {
   for (let i = 2, s = Math.sqrt(num); i <= s; i += 1) {
     if (num % i === 0) return false;
   }
   return num > 1;
 };
 
-export const getParity = (number) => number % 2 === 0;
-
-export const checkAnswer = (condition, answer) => {
-  const correctAnswer = condition ? 'yes' : 'no';
-  return answer.toLowerCase() === correctAnswer;
-};
-export const getCorrectAnswer = (number, checkFunc) => (checkFunc(number) ? 'yes' : 'no');
+export const checkPrimeGuess = (answer, number) => (answer.toLowerCase() === 'yes' && getPrime(number))
+  || (answer.toLowerCase() === 'no' && !getPrime(number));

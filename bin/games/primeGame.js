@@ -1,33 +1,28 @@
 import readlineSync from 'readline-sync';
-import {
-  randomNumber, checkAnswer, getPrime, getCorrectAnswer,
-} from '../src/index.js';
-
-const ask = () => {
-  const number = randomNumber();
-  console.log(`Question: ${number}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-  return { userAnswer, number };
-};
+import { randomNumber, checkPrimeGuess } from '../src/index.js';
 
 const game = (name) => {
   let counter = 0;
 
   while (counter < 3) {
-    const { userAnswer, number } = ask();
-    const correctAnswer = getCorrectAnswer(number, getPrime);
+    const number = randomNumber();
+    console.log(`Question: ${number}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    const answer = checkPrimeGuess(userAnswer, number) ? 'yes' : 'no';
 
-    if (checkAnswer(correctAnswer, userAnswer)) {
+    if (checkPrimeGuess(userAnswer, number)) {
       console.log('Correct!');
       counter += 1;
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
       console.log(`Let's try again, ${name}!`);
-      return;
+      break;
     }
   }
 
-  console.log(`Congratulations, ${name}!`);
+  if (counter === 3) {
+    console.log(`Congratulations, ${name}!`);
+  }
 };
 
 export default game;
