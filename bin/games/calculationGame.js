@@ -9,19 +9,19 @@ const game = (name) => {
     const num1 = randomNumber(1, 10);
     const num2 = randomNumber(1, 10);
     const operator = operations[randomNumber(0, operations.length - 1)];
-    const answer = calculate(num1, num2, operator);
+    const correctAnswer = calculate(num1, num2, operator);
 
     console.log(`Question: ${num1} ${operator} ${num2}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (Number(userAnswer) === answer) {
-      counter += 1;
-      console.log('Correct!');
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct was: '${answer}'`);
+    if (userAnswer === correctAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct was: '${correctAnswer}'`);
       console.log(`Let's try again, ${name}!`);
       return;
     }
+    
+    counter += 1;
+    console.log('Correct!');
   }
 
   console.log(`Congratulations, ${name}!`);

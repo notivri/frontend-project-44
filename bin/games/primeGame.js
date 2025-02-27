@@ -6,23 +6,22 @@ const game = (name) => {
 
   while (counter < 3) {
     const number = randomNumber();
+    
     console.log(`Question: ${number}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const answer = checkPrimeGuess(userAnswer, number) ? 'yes' : 'no';
+    const correctAnswer = checkPrimeGuess(userAnswer, number) ? 'yes' : 'no';
 
-    if (checkPrimeGuess(userAnswer, number)) {
-      console.log('Correct!');
-      counter += 1;
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
+    if (!checkPrimeGuess(userAnswer, number)) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
-      break;
+      return;
     }
+
+    counter += 1;
+    console.log('Correct!');
   }
 
-  if (counter === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default game;

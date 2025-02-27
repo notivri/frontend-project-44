@@ -11,19 +11,17 @@ const game = (name) => {
     const userAnswer = readlineSync.question('Your answer: ');
     const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
 
-    if (checkParityGuess(userAnswer, number)) {
-      counter += 1;
-      console.log('Correct!');
-    } else {
+    if (!checkParityGuess(userAnswer, number)) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
-      break;
+      return;
     }
+    
+    counter += 1;
+    console.log('Correct!');
   }
 
-  if (counter === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default game;

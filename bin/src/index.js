@@ -42,8 +42,8 @@ export const generateProgression = () => {
   const length = randomNumber(5, 10);
   const start = randomNumber(1, 10);
   const step = randomNumber(1, 10);
-
   const progression = [];
+  
   for (let i = 0; i < length; i += 1) {
     progression.push(start + step * i);
   }
